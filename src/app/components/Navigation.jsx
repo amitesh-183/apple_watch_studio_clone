@@ -25,7 +25,7 @@ const Navigation = () => {
     };
     return (
         <>
-            <ul className='flex md:justify-center justify-start items-center gap-2 sm:mt-10 overflow-x-auto md:w-full w-[calc(100vw-0.4rem)] md:px-0 px-2 mx-auto' role="list" aria-label="Navigation Options">
+            <ul className={`flex justify-center ${isSelectingCase || isSelectingSize || isSelectingStrap ? "justify-start" : ""} items-center gap-2 sm:mt-10 overflow-x-auto md:w-full w-[calc(100vw-0.4rem)] md:px-0 px-2 mx-auto`} role="list" aria-label="Navigation Options">
                 <li className={`flex items-center gap-1 md:text-lg text-base bg-gray-200 px-6 py-2 rounded-full cursor-pointer ${isSelectingSize ? "w-full max-w-fit duration-[2s] ease-linear" : "w-[100px]"}`} onClick={() => handleSelection("size")}
                     tabIndex={0}
                     role="button"
