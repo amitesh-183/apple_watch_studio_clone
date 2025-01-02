@@ -72,6 +72,14 @@ const SizeSlide = ({ isSelectingSize }) => {
         };
     }, []);
 
+    useEffect(() => {
+        if (swiperRef.current?.swiper) {
+            // Force navigation update after swiper initialization
+            swiperRef.current.swiper.navigation.init();
+            swiperRef.current.swiper.navigation.update();
+        }
+    });
+
     if (isLoading) {
         return <Loading />;
     }
@@ -87,8 +95,8 @@ const SizeSlide = ({ isSelectingSize }) => {
                         forceToAxis: true
                     }}
                     navigation={{
-                        nextEl: '.swiper-button-next',
-                        prevEl: '.swiper-button-prev'
+                        nextEl: '#swiper-size-next',
+                        prevEl: '#swiper-size-prev'
                     }}
                     keyboard={{
                         enabled: true,
@@ -185,12 +193,12 @@ const SizeSlide = ({ isSelectingSize }) => {
                 </Swiper>
                 {/* Navigation Arrows */}
                 {!isEnd &&
-                    <div className="swiper-button-next md:block hidden absolute z-[2] top-[40%] right-6 text-black bg-gray-200 p-0.5 rounded-full shadow-md cursor-pointer">
+                    <div id='swiper-size-next' className="md:block hidden absolute z-[2] top-[40%] right-6 text-black bg-gray-200 p-0.5 rounded-full shadow-md cursor-pointer">
                         <Image src={"/assets/icons/arrowRight.svg"} alt='-icon' height={36} width={36} />
                     </div>
                 }
                 {!isBeginning &&
-                    <div className="swiper-button-prev md:block hidden absolute z-[2] top-[40%] left-6 text-black bg-gray-200 p-0.5 rounded-full shadow-md cursor-pointer">
+                    <div id='swiper-size-prev' className="md:block hidden absolute z-[2] top-[40%] left-6 text-black bg-gray-200 p-0.5 rounded-full shadow-md cursor-pointer">
                         <Image src={"/assets/icons/arrowLeft.svg"} alt='-icon' height={36} width={36} />
                     </div>
                 }

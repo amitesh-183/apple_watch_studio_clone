@@ -68,6 +68,15 @@ const CaseSlide = ({ isSelectingCase }) => {
         };
     }, []);
 
+    useEffect(() => {
+        if (swiperRef.current?.swiper) {
+            // Force navigation update after swiper initialization
+            swiperRef.current.swiper.navigation.init();
+            swiperRef.current.swiper.navigation.update();
+        }
+    });
+
+
     if (isLoading) {
         return <Loading />;
     }
@@ -83,8 +92,8 @@ const CaseSlide = ({ isSelectingCase }) => {
                         forceToAxis: true
                     }}
                     navigation={{
-                        nextEl: '.swiper-button-next',
-                        prevEl: '.swiper-button-prev'
+                        nextEl: '#swiper-case-next',
+                        prevEl: '#swiper-case-prev'
                     }}
                     keyboard={{
                         enabled: true,
@@ -182,7 +191,7 @@ const CaseSlide = ({ isSelectingCase }) => {
                 </Swiper>
                 {/* Navigation Arrows */}
                 {!isEnd &&
-                    <div className="swiper-button-next md:block hidden absolute z-[2] top-[40%] right-6 text-black bg-gray-200 p-0.5 rounded-full shadow-md cursor-pointer"
+                    <div id="swiper-case-next" className=" md:block hidden absolute z-[2] top-[40%] right-6 text-black bg-gray-200 p-0.5 rounded-full shadow-md cursor-pointer"
                         role="button"
                         aria-label="Next slide"
                         tabIndex={0}
@@ -191,7 +200,7 @@ const CaseSlide = ({ isSelectingCase }) => {
                     </div>
                 }
                 {!isBeginning &&
-                    <div className="swiper-button-prev md:block hidden absolute z-[2] top-[40%] left-6 text-black bg-gray-200 p-0.5 rounded-full shadow-md cursor-pointer" role="button"
+                    <div id="swiper-case-prev" className=" md:block hidden absolute z-[2] top-[40%] left-6 text-black bg-gray-200 p-0.5 rounded-full shadow-md cursor-pointer" role="button"
                         aria-label="Previous slide"
                         tabIndex={0}
                         onKeyDown={(e) => e.key === 'Enter' && swiperRef.current?.swiper?.slidePrev()}>

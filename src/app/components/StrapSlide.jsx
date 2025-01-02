@@ -67,6 +67,15 @@ const StrapSlide = ({ isSelectingStrap }) => {
         };
     }, []);
 
+    useEffect(() => {
+        if (swiperRef.current?.swiper) {
+            // Force navigation update after swiper initialization
+            swiperRef.current.swiper.navigation.init();
+            swiperRef.current.swiper.navigation.update();
+        }
+    });
+
+
     const data = selectedOption === options[1] ? hermesData : selectedOption === options[2] ? seData : watchData;
 
     if (isLoading) {
@@ -85,8 +94,8 @@ const StrapSlide = ({ isSelectingStrap }) => {
                         sensitivity: 0.2,
                     }}
                     navigation={{
-                        nextEl: '.swiper-button-band-next',
-                        prevEl: '.swiper-button-band-prev'
+                        nextEl: '#swiper-band-next',
+                        prevEl: '#swiper-band-prev'
                     }}
                     keyboard={{
                         enabled: true,
@@ -184,17 +193,21 @@ const StrapSlide = ({ isSelectingStrap }) => {
                 </Swiper>
                 {/* Navigation Arrows */}
                 {!isBeginning &&
-                    <div className="swiper-button-band-prev md:block hidden absolute z-[6] top-[40%] left-6 text-black p-0.5 bg-gray-200 rounded-full cursor-pointer"
+                    <div id='swiper-band-prev' className=" md:block hidden absolute z-[6] top-[40%] left-6 text-black p-0.5 bg-gray-200 rounded-full cursor-pointer"
                         role='button'
                         aria-label='previous'
                         tabIndex={0}
                         onKeyDown={(e) => e.key === 'Enter' && swiperRef.current.swiper.slidePrev()}
                     >
-                        <Image src={"/assets/icons/arrowLeft.svg"} alt='left-icon' className="" height={36} width={36} />
+                        <Image src={"/assets/icons/arrowLeft.svg"} alt='left-icon' height={36} width={36} />
                     </div>
                 }
                 {!isEnd &&
-                    <div className="swiper-button-band-next md:block hidden absolute z-[6] top-[40%] right-6 text-black p-0.5 bg-gray-200 rounded-full cursor-pointer" role='button' aria-label='next' tabIndex={0} onKeyDown={(e) => e.key === 'Enter' && swiperRef.current.swiper.slideNext()}>
+                    <div id='swiper-band-next' className=" md:block hidden absolute z-[6] top-[40%] right-6 text-black p-0.5 bg-gray-200 rounded-full cursor-pointer"
+                        role='button'
+                        aria-label='next'
+                        tabIndex={0}
+                        onKeyDown={(e) => e.key === 'Enter' && swiperRef.current.swiper.slideNext()}>
                         <Image src={"/assets/icons/arrowRight.svg"} alt='right-icon' className="" height={36} width={36} />
                     </div>
                 }
