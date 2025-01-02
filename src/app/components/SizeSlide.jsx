@@ -18,7 +18,7 @@ import useDropdown from '../context/Dropdown/useDropdown';
 import { options } from '@/utils/shared/constants';
 import seData from '@/utils/data/SpecialEditionData';
 import { useActiveIndex } from '../context/ActiveIndex/ActiveIndexContext';
-import Loading from './common/loading';
+import Loading from './common/Loading';
 
 const SizeSlide = ({ isSelectingSize }) => {
     const [isBeginning, setIsBeginning] = useState(true);

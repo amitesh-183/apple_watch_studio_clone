@@ -18,7 +18,7 @@ import Image from 'next/image';
 import useDropdown from '../context/Dropdown/useDropdown';
 import { options } from '@/utils/shared/constants';
 import { useActiveIndex } from '../context/ActiveIndex/ActiveIndexContext';
-import Loading from './common/loading';
+import Loading from './common/Loading';
 
 const StrapSlide = ({ isSelectingStrap }) => {
     const [isBeginning, setIsBeginning] = useState(true);
