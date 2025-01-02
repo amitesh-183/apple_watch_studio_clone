@@ -1,0 +1,55 @@
+@import url("https://fonts.cdnfonts.com/css/sf-pro-display");
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --background: #ffffff;
+  --foreground: #171717;
+}
+
+@media (prefers-color-scheme: light) {
+  :root {
+    --background: #0a0a0a;
+    --foreground: #ededed;
+  }
+}
+
+body {
+  color: var(--foreground);
+  background: var(--background);
+  font-family: "SF Pro Display", Helvetica, sans-serif;
+}
+
+*::-webkit-scrollbar {
+  width: 0;
+}
+
+.hideScroll::-webkit-scrollbar-thumb {
+  width: 8px;
+  background: red;
+}
+.hideScroll::-webkit-scrollbar-track {
+  width: 0;
+  background: transparent;
+}
+.hideScroll::-webkit-scrollbar {
+  width: 0;
+  background: transparent;
+}
+
+.appleBtn {
+  @apply text-white px-6 py-2 cursor-pointer rounded-full bg-[#0071e3];
+}
+
+.swiper .swiper-slide {
+  margin-top: 10px;
+}
+.swiper .swiper-slide img {
+  width: 400px !important;
+  height: 400px !important;
+}
+
+@media (max-width: 768px) {
+}
