@@ -118,10 +118,5 @@ src/
 - **Enhanced UI/UX**: Include animations and additional customization options.
 - **Performance Optimizations**: Leverage caching and other optimization techniques for faster performance.
 
-## **License**
 
-This project is licensed under the MIT License.
-
----
-
-**Author**: Your Name ([your-email@example.com](mailto:your-email@example.com))
+**Author**: Your Name ([bamitesh520@gmail.com](mailto:bamitesh520@gmail.com))
